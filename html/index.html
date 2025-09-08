@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <img id="logo" src="logo.png">
+    
+    <script>
+        const logo = document.getElementById('logo');
+        function applyConfig(cfg){
+            if(!cfg) return;
+            // Position via classes
+            logo.className = '';
+            if(cfg.position){
+                logo.classList.add('logo-' + cfg.position);
+            }
+            // Dimensions & opacité dynamiques
+            if(typeof cfg.widthVW === 'number'){
+                logo.style.setProperty('--logo-width-vw', cfg.widthVW + 'vw');
+            }
+            if(typeof cfg.minWidth === 'number'){
+                logo.style.setProperty('--logo-min-width', cfg.minWidth + 'px');
+            }
+            if(typeof cfg.maxWidth === 'number'){
+                logo.style.setProperty('--logo-max-width', cfg.maxWidth + 'px');
+            }
+            if(typeof cfg.opacity === 'number'){
+                logo.style.opacity = cfg.opacity;
+            }
+        }
+
+        window.addEventListener('message', function(event){
+            if(event.data && event.data.action === 'setConfig'){
+                applyConfig(event.data);
+            }
+        });
+    </script>
+</body>
+</html>

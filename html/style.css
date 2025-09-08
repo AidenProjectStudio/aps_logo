@@ -1,0 +1,44 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    overflow: hidden;
+}
+
+/* Base commune du logo: taille et opacité contrôlées via variables CSS */
+#logo {
+    width: var(--logo-width-vw, 10vw);
+    max-width: var(--logo-max-width, 200px);
+    min-width: var(--logo-min-width, 80px);
+    height: auto;
+    opacity: 0.9; /* valeur par défaut remplacée dynamiquement */
+}
+
+/* 🔹 Haut droite */
+.logo-top-right {
+    position: absolute;
+    top: 2%;
+    right: 2%;
+}
+
+/* 🔹 Bas droite */
+.logo-bottom-right {
+    position: absolute;
+    bottom: 2%;
+    right: 2%;
+}
+
+/* 🔹 Haut centre */
+.logo-top-center {
+    position: absolute;
+    top: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* 🔹 Haut gauche */
+.logo-top-left {
+    position: absolute;
+    top: 2%;
+    left: 2%;
+}
